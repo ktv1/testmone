@@ -10,10 +10,27 @@ namespace Application\Controller;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
+
 class IndexController extends AbstractActionController
 {
+ /*   private $entityManager;
+
+    private $container;
+
+    public function __construct($container)
+    {
+        $this->entityManager = $container->get('doctrine.entitymanager.orm_default');
+
+        $this->container = $container;
+    }*/
+
     public function indexAction()
     {
+/*        $ttt = $this->entityManager->getRepository(TestTable::class)->find(1);
+        $api = $this->container->get('Config');
+        //print('<pre>');print_r($api['shopify']); die;*/
         return new ViewModel();
     }
+
+
 }

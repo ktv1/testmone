@@ -19,7 +19,6 @@ return [
     'Zend\Mvc\Plugin\Identity',
     'Zend\Mvc\Plugin\Prg',
     'Zend\Session',
-    'Zend\Mvc\I18n',
     'Zend\Mvc\Console',
     'Zend\Form',
     'Zend\Hydrator',
@@ -30,4 +29,6 @@ return [
     'Zend\Validator',
     'ZendDeveloperTools',
     'Application',
+    'DoctrineModule',
+    'DoctrineORMModule',
 ];

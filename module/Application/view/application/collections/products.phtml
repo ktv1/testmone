@@ -1,0 +1,33 @@
+<?php
+  if($collection) {
+      $this->headTitle($collection->getTitle());
+  } else {
+      $this->headTitle('Колекція');
+  }
+
+  $this->mainMenu()->setActiveItemId('collections');
+?>
+<?php if ($this->products) { ?>
+    <h1><?= ($collection) ? $collection->getTitle() : ''; ?></h1>
+    <table class="table table-hover">
+        <tr>
+            <th>Зображення</th>
+            <th>Назва</th>
+            <th>Виробник</th>
+        </tr>
+
+        <?php foreach ($this->products as $key => $product ) { ?>
+            <tr>
+                <td><img class="thumb" width="100" height="auto" src="<?= ($product->getImage()) ? $product->getImage() : '/img/placeholder.png' ?>"></td>
+                <td><?php echo $this->escapeHtml($product->getTitle()) ?></td>
+              <td><?php echo $this->escapeHtml($product->getVendor()) ?></td>
+            </tr>
+        <?php } ?>
+
+    </table>
+
+<?php } else { ?>
+    <h1><?= ($collection) ? $collection->getTitle() : ''; ?></h1>
+    <p>Немає жодного товару в колекції.</p>
+
+<?php } ?>

@@ -1,0 +1,29 @@
+<?php
+  $this->headTitle('Колекції');
+  $this->mainMenu()->setActiveItemId('collections');
+?>
+<?php if ($this->collections) { ?>
+    <h1>Список колекцій</h1>
+    <table class="table table-hover">
+        <tr>
+            <th>Зображення</th>
+            <th>Назва</th>
+        </tr>
+
+        <?php foreach ($this->collections as $key => $collection ) { ?>
+            <?php
+                $imgsrc = isset(json_decode($collection->getImage())->src) ? json_decode($collection->getImage())->src : '/img/placeholder.png';
+            ?>
+            <tr>
+                <td><img class="thumb" width="100" height="auto" src="<?= $imgsrc; ?>"></td>
+                <td><a href="<?= $this->url('collections', ['id' => $collection->getId()]); ?>"> <?php echo $this->escapeHtml($collection->getTitle()) ?></a></td></td>
+            </tr>
+        <?php } ?>
+
+    </table>
+
+<?php } else { ?>
+    <h1>Список колекцій</h1>
+    <p>Немає жодної колекції.</p>
+
+<?php } ?>
